@@ -93,6 +93,7 @@ router.put("/posts/:postId", authMiddleware, async (req, res) => {
     res.status(412).json({
       errorMessage: "제목 또는 게시글의 형식이 올바르지 않습니다.",
     });
+    return;
   }
   try {
     const existsPosts = await Posts.findOne({ _id: postId });
